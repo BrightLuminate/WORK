@@ -4,14 +4,18 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import  CSRFProtect
 # SQLAlchemy를 인스턴스화한다.
-db = SQLAlchemy()   # 객체 생성 db로 다룰것이다.
+from apps.config import config
 
+db = SQLAlchemy()   # 객체 생성 db로 다룰것이다.
 csrf = CSRFProtect() 
 
 # create_app 함수를 작성한다.
-def create_app():
+# config의 키를 전달한다.
+def create_app(config_key):
     # 플라스크 인스턴스 생성
     app = Flask(__name__)
+  # config_key에 매치하는 환경의 config 클래스를 읽어 들인다.
+    app.config.from_object(config[config_key])
 # 앱의 config 설정을 한다.
     app.config.from_mapping(
       SECRET_KEY="2AZSMss3p5QPbcYBsJ", # 자체적으로 이름 정할수도 있다.

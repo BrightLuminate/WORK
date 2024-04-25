@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>사용자의 일람</title>
@@ -11,6 +11,9 @@
 </head>
 
 <body>
+  {% extends "crud/base.html" %}  
+  {% block title %}사용자의 일람{% endblock %} 
+  {% block content %}
   <h2>사용자의 일람</h2>
 
   <a href="{{ url_for('crud.create_user') }}">사용자 신규 작성 </a>
@@ -33,6 +36,7 @@
         </tr>
         {% endfor %}
   </table>
+  {% endblock %}
     <!-- <p class="crud">CRUD 애플리케이션</p> -->
 </body>
 </html>

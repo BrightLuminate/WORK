@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>사용자 편집</title>
@@ -8,6 +8,9 @@
 
 
 <body>
+    {% extends "crud/base.html" %}  
+    {% block title %}사용자 편집{% endblock %} 
+    {% block content %}
     <h2>사용자 편집</h2>
 
 
@@ -44,6 +47,6 @@
         {{ form.csrf_token }}
         <input type="submit" value="삭제">
     </form>
-    
+    {% endblock %}
 </body>
 </html>
